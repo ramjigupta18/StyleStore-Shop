@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ 
+/* Project-18 */
+.scroll::-webkit-scrollbar{
+    display: none;
+}
