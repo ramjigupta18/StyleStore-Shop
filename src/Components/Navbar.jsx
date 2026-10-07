@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "./img/logo.png";
 import { IoSearch } from "react-icons/io5";
 import { GoHeartFill } from "react-icons/go";
@@ -11,8 +11,8 @@ const Navbar = ({ handleScroll, setSearchTerm, isScrolled, handlePanel, totalIte
     >
       <nav className=" max-w-[1300px] px-12 mx-auto h-[14vh] flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex w-14 h-14 bg-zinc-100 rounded-full p-2">
-          <img src={Logo} className="w-full h-full object-contain" />
+        <a href="/" className="flex w-14 h-14 bg-zinc-100 rounded-full p-2">
+          <img src={Logo} className="w-full h-full object-contain" alt="Logo"/>
         </a>
 
         {/* Nav Actions */}

@@ -28,7 +28,7 @@ const Wishlist = ({ activePanel, handleClose, wishlist, addToCart, clearWishlist
                 <div className="w-20 h-20 ">
                   <img
                     src={product.image}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain" alt={product.name || "Wishlist"}
                   />
                 </div>
 

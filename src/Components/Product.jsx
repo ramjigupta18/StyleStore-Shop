@@ -48,7 +48,7 @@ const Product = ({ searchTerm, addToCart, addToWishlist, wishlist }) => {
 
             {/* Product Image */}
             <div className="w-full h-[30vh]">
-              <img src={product.image} />
+              <img src={product.image} alt={product.name || "Product"}/>
             </div>
 
             {/* Product Detail */}

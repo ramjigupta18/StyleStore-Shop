@@ -28,7 +28,7 @@ const Cart = ({ activePanel, handleClose, cart, removeItem, quantityIncrement, q
               {/* Cart Image */}
               <div className="w-20 h-20 ">
                 <img
-                  src={product.image}
+                  src={product.image} alt={product.name}
                   className="w-full h-full object-contain"
                 />
               </div>
