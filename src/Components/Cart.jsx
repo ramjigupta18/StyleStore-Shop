@@ -4,29 +4,27 @@ import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 const Cart = ({ activePanel, handleClose, cart, removeItem, quantityIncrement, quantityDecrement, subtotal, shippingFee, orderTotal, setOrderSummary }) => {
   return (
     <div
-      className={`flex flex-col justify-between gap-5 bg-zinc-100 fixed top-0 right-0 bottom-0 left-auto z-40 w-[400px] border border-zinc-300 py-7 transform transition-transform duration-300
-    ${activePanel === "cart" ? "translate-x-0" : "translate-x-full"}`}
-    >
+    className={`flex flex-col justify-between gap-5 bg-zinc-100 fixed top-0 right-0 bottom-0 left-auto z-40 w-full sm:w-[400px] max-w-full border border-zinc-300 py-5 sm:py-7 transform transition-transform duration-300
+    ${activePanel === "cart" ? "translate-x-0" : "translate-x-full"}`}>
+
       {/* Heading */}
-      <div className="px-10">
-        <h3 className="text-3xl font-bold text-zinc-800 text-center">
-          Your Cart
-        </h3>
+      <div className="px-5 sm:px-10">
+        <h3 className="text-2xl sm:text-3xl font-bold text-zinc-800 text-center">Your Cart</h3>
       </div>
 
       {/* Cart Items */}
-      <div className="flex-1 flex flex-col gap-2 overflow-y-auto scroll">
+      <div  className="flex-1 flex flex-col gap-2 overflow-y-auto scroll">
         {
             cart.length === 0 ?
             (<p className="text-zinc-800 text-center">Your cart is empty.</p>) :
                     (cart.map((product, index) => {
           return (
             <div
-              className={`flex items-center gap-3 px-5 py-1 border-y border-zinc-300
-                     ${index % 2 === 0 ? "bg-blue-100" : "bg-white"}`}
-            >
+             className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 border-y border-zinc-300
+                  ${index % 2 === 0 ? "bg-blue-100" : "bg-white"}`}>
+
               {/* Cart Image */}
-              <div className="w-20 h-20 ">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
                 <img
                   src={product.image} alt={product.name}
                   className="w-full h-full object-contain"
@@ -36,10 +34,10 @@ const Cart = ({ activePanel, handleClose, cart, removeItem, quantityIncrement, q
               {/* Product Detail */}
               <div className="flex-1">
                 <div className="flex justify-between">
-                  <h4 className="font-semibold text-zinc-800 text-lg">
+                  <h4 className="font-semibold text-zinc-800 text-base sm:text-lg">
                     {product.name}
                   </h4>
-                  <button className="w-8 h-8 bg-red-600 rounded-full text-white flex justify-center items-center mr-[27px] cursor-pointer active:bg-red-700" 
+                  <button className="w-8 h-8 bg-red-600 rounded-full text-white flex justify-center items-center mr-2 cursor-pointer active:bg-red-700" 
                   onClick={() => removeItem(product)}>
                     <FaTrash />
                   </button>
@@ -52,7 +50,7 @@ const Cart = ({ activePanel, handleClose, cart, removeItem, quantityIncrement, q
                         ${product.oldPrice.toFixed(2)}
                       </span>
                     )}
-                    <span className="text-red-600 font-semibold text-lg">
+                    <span className="text-red-600 font-semibold text-base sm:text-lg">
                       ${product.price.toFixed(2)}
                     </span>
                   </div>
@@ -78,7 +76,7 @@ const Cart = ({ activePanel, handleClose, cart, removeItem, quantityIncrement, q
       </div>
 
       {/* Cart Total */}
-      <div className="px-10 border-y border-zinc-300">
+      <div className="px-5 sm:px-10 border-y border-zinc-300">
         <div className="flex justify-between pt-2">
           <span className="text-zinc-800">Subtotal</span>
           <span className="text-zinc-800">${subtotal.toFixed(2)}</span>
@@ -94,13 +92,9 @@ const Cart = ({ activePanel, handleClose, cart, removeItem, quantityIncrement, q
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-x-2 px-10">
+      <div className="flex gap-x-2 px-5 sm:px-10">
         <button
-          className="bg-blue-600 text-white flex-1 h-[7vh] cursor-pointer active:bg-blue-700 "
-          onClick={handleClose}
-        >
-          Close
-        </button>
+          className="bg-blue-600 text-white flex-1 h-12 sm:h-[7vh] cursor-pointer active:bg-blue-700" onClick={handleClose}>Close</button>
         <button className={`text-white flex-1 h-[7vh]  active:bg-blue-700
         ${cart.length === 0 ? 'bg-slate-400 cursor-not-allowed' : 'bg-blue-600 cursor-pointer'}`} 
         disabled={cart.length === 0} onClick={() => setOrderSummary(true)}>

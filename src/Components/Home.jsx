@@ -118,7 +118,7 @@ const Home = () => {
     }, [cart, wishlist])
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar handleScroll={handleScroll} setSearchTerm={setSearchTerm} isScrolled={isScrolled} 
       handlePanel={handlePanel} totalItems={totalItems} wishlist={wishlist}/>
 

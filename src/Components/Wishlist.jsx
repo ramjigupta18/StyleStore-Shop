@@ -3,12 +3,12 @@ import React from "react";
 const Wishlist = ({ activePanel, handleClose, wishlist, addToCart, clearWishlist }) => {
   return (
     <div
-      className={`flex flex-col justify-between gap-5 bg-zinc-100 fixed top-0 right-0 bottom-0 left-auto z-40 w-[400px] border border-zinc-300 py-7 transform transition-transform duration-300
+      className={`flex flex-col justify-between gap-5 bg-zinc-100 fixed top-0 right-0 bottom-0 left-auto z-40 w-full sm:w-[400px] max-w-full border border-zinc-300 py-5 sm:py-7 transform transition-transform duration-300
     ${activePanel === "wishlist" ? "translate-x-0" : "translate-x-full"}`}
     >
       {/* Heading */}
-      <div className="px-10">
-        <h3 className="text-3xl font-bold text-zinc-800 text-center">
+      <div className="px-5 sm:px-10">
+        <h3 className="text-2xl sm:text-3xl font-bold text-zinc-800 text-center">
           Your Wishlist
         </h3>
       </div>
@@ -21,11 +21,11 @@ const Wishlist = ({ activePanel, handleClose, wishlist, addToCart, clearWishlist
           wishlist.map((product, index) => {
             return (
               <div
-                className={`flex items-center gap-3 px-5 py-1 border-y border-zinc-300 
+                  className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 border-y border-zinc-300
              ${index % 2 === 0 ? "bg-blue-100" : "bg-white"}`}
               >
                 {/* Cart Image */}
-                <div className="w-20 h-20 ">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
                   <img
                     src={product.image}
                     className="w-full h-full object-contain" alt={product.name || "Wishlist"}
@@ -35,10 +35,11 @@ const Wishlist = ({ activePanel, handleClose, wishlist, addToCart, clearWishlist
                 {/* Product Detail */}
                 <div className="flex-1">
                   <div className="flex justify-between">
-                    <h4 className="font-semibold text-zinc-800 text-lg">
+                    <h4 className="font-semibold text-zinc-800 text-base sm:text-lg">
                       {product.name}
                     </h4>
-                    <p className="text-sm text-zinc-500">Added:{product.addedDate}</p>
+                    <p className="text-xs sm:text-sm text-zinc-500">
+                      Added:{product.addedDate}</p>
                   </div>
 
                   <div className="flex justify-between">
@@ -64,7 +65,7 @@ const Wishlist = ({ activePanel, handleClose, wishlist, addToCart, clearWishlist
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-x-2 px-10">
+      <div className="flex gap-x-2 px-5 sm:px-10">
         <button
           className="bg-blue-600 text-white flex-1 h-[7vh] cursor-pointer active:bg-blue-700 "
           onClick={handleClose}

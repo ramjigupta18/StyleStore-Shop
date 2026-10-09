@@ -45,20 +45,19 @@ const Banner = () => {
 
   return (
     <section
-      className="h-[60vh] mt-[14vh] bg-cover bg-top"
-      style={{ backgroundImage: `url(${BannerImage})` }}
+      className="min-h-[55vh] sm:h-[60vh] mt-[80px] sm:mt-[90px] lg:mt-[14vh] bg-cover bg-center sm:bg-top max-sm:bg-none max-sm:bg-zinc-100"
+      style={{
+        backgroundImage:
+          window.innerWidth < 640 ? "none" : `url(${BannerImage})`,
+      }}
     >
-      <div className="max-w-[1300px] mx-auto px-12 h-96 flex flex-col justify-center gap-3">
-        <h1 className="text-red-500 text-9xl uppercase font-bold tracking-tight">
-          Big Sale!
-        </h1>
-        <h2 className="text-zinc-800 text-3xl">
-          Up to 50% OFF - Limited Time Only!
-        </h2>
-        <div className="text-6xl font-bold text-zinc-800 flex gap-x-3 mt-5">
-          <span className="text-white bg-zinc-800 p-3">{hours}</span>:
-          <span className="text-white bg-zinc-800 p-3">{minutes}</span>:
-          <span className="text-white bg-zinc-800 p-3">{seconds}</span>
+      <div className="max-w-[1300px] mx-auto px-5 sm:px-8 lg:px-12 h-full flex flex-col justify-center gap-2 sm:gap-3">
+        <h1 className="text-red-500 text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase font-bold tracking-tight">Big Sale!</h1>
+        <h2 className="text-zinc-800 text-lg sm:text-2xl md:text-3xl">Up to 50% OFF - Limited Time Only!</h2>
+        <div className="text-3xl sm:text-5xl md:text-6xl font-bold text-zinc-800 flex gap-x-1 sm:gap-x-3 mt-3 sm:mt-5">
+          <span className="text-white bg-zinc-800 p-2 sm:p-3">{hours}</span>:
+          <span className="text-white bg-zinc-800 p-2 sm:p-3">{minutes}</span>:
+          <span className="text-white bg-zinc-800 p-2 sm:p-3">{seconds}</span>
         </div>
       </div>
     </section>
