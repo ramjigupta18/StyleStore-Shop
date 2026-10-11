@@ -4,7 +4,7 @@ import { useShop } from "./context/ShopContext";
 
 const SharedNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [, setSearchTerm] = useState("");
 
   const { totalItems, wishlist } = useShop();
 
